@@ -3,7 +3,7 @@ def secure_verify():
 	text = f.read()
 	f.close()
 	from hashes import hashes, calls
-	return False not in (specific_hash(text, key) == hashes[key] for key in calls.keys())
+	return verify_integrity() and False not in (specific_hash(text, key) == hashes[key] for key in calls.keys())
 
 
 def get_hashes():
